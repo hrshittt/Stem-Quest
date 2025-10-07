@@ -1,6 +1,7 @@
 # 🚀 STEM Quest - Gamified Learning Platform
 
 A modern, interactive STEM learning website designed for students in grades 6-10. Built with React and Tailwind CSS, featuring a clean, modular architecture ready for future game integration.
+Live Demo - https://stem-quest-sigma.vercel.app/
 
 ## ✨ Features
 
@@ -53,38 +54,6 @@ src/
 ├── main.jsx                # Entry point
 └── index.css               # Global styles and animations
 ```
-
-## 🎓 Learning Content Structure
-
-### **Grade 6**
-- **Mathematics**: Whole numbers, fractions, basic geometry, data handling
-- **Science**: Plants, human body, light, environment, solar system
-- **Problem Solving**: Simple puzzles, pattern recognition, logical reasoning
-- **Technology**: Simple machines, electricity basics, computers, environmental awareness
-
-### **Grade 7**
-- **Mathematics**: Integers, algebra basics, geometry, probability
-- **Science**: Nutrition, motion, heat, acids/bases, weather
-- **Problem Solving**: Sudoku-like puzzles, riddles, Venn diagrams
-- **Technology**: Machines, circuits, cyber safety, renewable energy
-
-### **Grade 8**
-- **Mathematics**: Exponents, algebra, geometry, mensuration, statistics
-- **Science**: Microorganisms, force, sound, combustion, cell structure
-- **Problem Solving**: Logical grids, analogies, critical thinking
-- **Technology**: Machine principles, electricity, communication, pollution
-
-### **Grade 9**
-- **Mathematics**: Polynomials, linear equations, coordinate geometry
-- **Science**: Laws of motion, energy, atomic structure, tissues
-- **Problem Solving**: Strategy puzzles, reasoning, real-world problems
-- **Technology**: Internet basics, AI awareness, sustainable tech
-
-### **Grade 10**
-- **Mathematics**: Quadratic equations, trigonometry, coordinate geometry
-- **Science**: Light, electricity, chemical reactions, genetics, energy
-- **Problem Solving**: Advanced logic, case studies, decision-making
-- **Technology**: Computer basics, digital literacy, robotics, green energy
 
 ## 🚀 Getting Started
 
