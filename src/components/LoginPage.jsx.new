@@ -1,0 +1,108 @@
+import React, { useState } from 'react'
+
+const LoginPage = ({ setCurrentPage }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError('')
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed')
+      }
+
+      // Store token
+      localStorage.setItem('token', data.token)
+      
+      // Redirect to home
+      setCurrentPage('home')
+    } catch (err) {
+      setError(err.message)
+      console.error('Login error:', err)
+    }
+  }
+
+  return (
+    <div className="relative min-h-screen flex items-center justify-center">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="/vid.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50" />
+
+      {/* Login Form */}
+      <div className="relative z-10 w-full max-w-md px-6">
+        <div className="bg-gray-800/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl">
+          <h1 className="text-4xl font-bold mb-8 text-center text-stem-blue">Login</h1>
+          {error && (
+            <div className="mb-4 p-3 bg-red-500/10 border border-red-500 rounded-lg text-red-500 text-sm">
+              {error}
+            </div>
+          )}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-white mb-2">Email</label>
+              <input 
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-stem-blue focus:border-transparent text-white"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-white mb-2">Password</label>
+              <input 
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-stem-blue focus:border-transparent text-white"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <button 
+              type="submit"
+              className="w-full bg-stem-blue hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300"
+            >
+              Sign In
+            </button>
+            <div className="text-center text-sm text-gray-300">
+              <span>Don't have an account? </span>
+              <button
+                type="button"
+                onClick={() => setCurrentPage('signup')}
+                className="text-stem-blue hover:text-blue-400 font-medium transition duration-300"
+              >
+                Sign up
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default LoginPage
