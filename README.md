@@ -1,7 +1,8 @@
 # 🚀 STEM Quest - Gamified Learning Platform
 
 A modern, interactive STEM learning website designed for students in grades 6-10. Built with React and Tailwind CSS, featuring a clean, modular architecture ready for future game integration.
-Live Demo - https://stem-quest-sigma.vercel.app/
+🔗 **Live Demo:** [Click here to explore STEM Quest](https://stem-quest-sigma.vercel.app/)
+
 
 ## ✨ Features
 
